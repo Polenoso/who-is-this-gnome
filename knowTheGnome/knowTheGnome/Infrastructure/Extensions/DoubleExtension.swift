@@ -1,5 +1,5 @@
 //
-//  APIConfig.swift
+//  DoubleExtension.swift
 //  knowTheGnome
 //
 //  Created by Aitor Pagán on 18/2/18.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-
-class AppApiConfig {
-    
-    static let base_url = "https://raw.githubusercontent.com/rrafols/"
+extension Double {
+    func format(f: String) -> String {
+        return String(format: "%\(f)f", self)
+    }
 }

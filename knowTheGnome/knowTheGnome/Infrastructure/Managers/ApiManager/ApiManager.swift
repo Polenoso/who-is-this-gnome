@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import Alamofire
+
+class ApiManager {
+    static let sharedInstance: ApiManager = ApiManager()
+    
+    private init() {}
+    
+    let gnomeRoute : GnomeRoute = GnomeRoute()
+}

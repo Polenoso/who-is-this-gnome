@@ -20,6 +20,12 @@
 		D4D988F02039A185000664B9 /* GnomeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988EF2039A185000664B9 /* GnomeListView.swift */; };
 		D4D988F22039A19B000664B9 /* GnomeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988F12039A19B000664B9 /* GnomeListPresenter.swift */; };
 		D4D988F52039A1B8000664B9 /* GnomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988F42039A1B8000664B9 /* GnomeService.swift */; };
+		D4D988F82039A864000664B9 /* GnomeRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988F72039A864000664B9 /* GnomeRoute.swift */; };
+		D4D988FB2039A936000664B9 /* CommonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988FA2039A936000664B9 /* CommonTypes.swift */; };
+		D4D988FD2039BE87000664B9 /* GnomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988FC2039BE87000664B9 /* GnomeTableViewCell.swift */; };
+		D4D989002039D379000664B9 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988FF2039D379000664B9 /* FontExtension.swift */; };
+		D4D989022039DEF8000664B9 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D989012039DEF8000664B9 /* DoubleExtension.swift */; };
+		D4D989052039E910000664B9 /* GnomeListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D989042039E910000664B9 /* GnomeListPresenterTests.swift */; };
 		D4F17F8D20399E4A000A1BD6 /* AppAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F17F8C20399E4A000A1BD6 /* AppAPIConfig.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +70,12 @@
 		D4D988EF2039A185000664B9 /* GnomeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListView.swift; sourceTree = "<group>"; };
 		D4D988F12039A19B000664B9 /* GnomeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListPresenter.swift; sourceTree = "<group>"; };
 		D4D988F42039A1B8000664B9 /* GnomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeService.swift; sourceTree = "<group>"; };
+		D4D988F72039A864000664B9 /* GnomeRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeRoute.swift; sourceTree = "<group>"; };
+		D4D988FA2039A936000664B9 /* CommonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTypes.swift; sourceTree = "<group>"; };
+		D4D988FC2039BE87000664B9 /* GnomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeTableViewCell.swift; sourceTree = "<group>"; };
+		D4D988FF2039D379000664B9 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		D4D989012039DEF8000664B9 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		D4D989042039E910000664B9 /* GnomeListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListPresenterTests.swift; sourceTree = "<group>"; };
 		D4F17F8C20399E4A000A1BD6 /* AppAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAPIConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +131,7 @@
 		D42D98D22038F1D4009713BB /* knowTheGnomeTests */ = {
 			isa = PBXGroup;
 			children = (
+				D4D989032039E8A8000664B9 /* GnomeListScene */,
 				D42D98D32038F1D4009713BB /* knowTheGnomeTests.swift */,
 				D42D98D52038F1D4009713BB /* Info.plist */,
 			);
@@ -128,6 +141,8 @@
 		D42D98DE2038F347009713BB /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				D4D988FE2039D360000664B9 /* Extensions */,
+				D4D988F92039A91A000664B9 /* CommonTypes */,
 				D4F17F892039908E000A1BD6 /* Managers */,
 				D4F17F8820399081000A1BD6 /* APIConfig */,
 				D42D98E22038F79F009713BB /* Model */,
@@ -185,8 +200,42 @@
 			isa = PBXGroup;
 			children = (
 				D4D988EF2039A185000664B9 /* GnomeListView.swift */,
+				D4D988FC2039BE87000664B9 /* GnomeTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D4D988F62039A7E3000664B9 /* EndPointRoutes */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988F72039A864000664B9 /* GnomeRoute.swift */,
+			);
+			path = EndPointRoutes;
+			sourceTree = "<group>";
+		};
+		D4D988F92039A91A000664B9 /* CommonTypes */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988FA2039A936000664B9 /* CommonTypes.swift */,
+			);
+			path = CommonTypes;
+			sourceTree = "<group>";
+		};
+		D4D988FE2039D360000664B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988FF2039D379000664B9 /* FontExtension.swift */,
+				D4D989012039DEF8000664B9 /* DoubleExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D4D989032039E8A8000664B9 /* GnomeListScene */ = {
+			isa = PBXGroup;
+			children = (
+				D4D989042039E910000664B9 /* GnomeListPresenterTests.swift */,
+			);
+			path = GnomeListScene;
 			sourceTree = "<group>";
 		};
 		D4F17F8820399081000A1BD6 /* APIConfig */ = {
@@ -217,6 +266,7 @@
 		D4F17F8B20399B3B000A1BD6 /* ApiManager */ = {
 			isa = PBXGroup;
 			children = (
+				D4D988F62039A7E3000664B9 /* EndPointRoutes */,
 				D4D988E82039A11D000664B9 /* ApiManager.swift */,
 			);
 			path = ApiManager;
@@ -364,14 +414,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D988F82039A864000664B9 /* GnomeRoute.swift in Sources */,
 				D4D988E92039A11D000664B9 /* ApiManager.swift in Sources */,
 				D4D988EE2039A176000664B9 /* GnomeListViewController.swift in Sources */,
 				D4D988F52039A1B8000664B9 /* GnomeService.swift in Sources */,
 				D4D988E72039A103000664B9 /* Gnome.swift in Sources */,
+				D4D988FB2039A936000664B9 /* CommonTypes.swift in Sources */,
 				D4D988EB2039A12A000664B9 /* NetworkManager.swift in Sources */,
 				D4D988F02039A185000664B9 /* GnomeListView.swift in Sources */,
+				D4D988FD2039BE87000664B9 /* GnomeTableViewCell.swift in Sources */,
 				D4D988F22039A19B000664B9 /* GnomeListPresenter.swift in Sources */,
 				D4F17F8D20399E4A000A1BD6 /* AppAPIConfig.swift in Sources */,
+				D4D989002039D379000664B9 /* FontExtension.swift in Sources */,
+				D4D989022039DEF8000664B9 /* DoubleExtension.swift in Sources */,
 				D42D98BF2038F1D4009713BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42D98D42038F1D4009713BB /* knowTheGnomeTests.swift in Sources */,
+				D4D989052039E910000664B9 /* GnomeListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

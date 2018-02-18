@@ -74,14 +74,14 @@ class GnomeTableViewCell: UITableViewCell {
         // Height icon
         heightIcon = UIImageView()
         heightIcon.backgroundColor = UIColor.clear
-        heightIcon.contentMode = .scaleAspectFill
+        heightIcon.contentMode = .scaleAspectFit
         heightIcon.image = #imageLiteral(resourceName: "height")
         heightIcon.translatesAutoresizingMaskIntoConstraints = false
         
         // Weight icon
         weightIcon = UIImageView()
         weightIcon.backgroundColor = UIColor.clear
-        weightIcon.contentMode = .scaleAspectFill
+        weightIcon.contentMode = .scaleAspectFit
         weightIcon.image = #imageLiteral(resourceName: "weight")
         weightIcon.translatesAutoresizingMaskIntoConstraints = false
         

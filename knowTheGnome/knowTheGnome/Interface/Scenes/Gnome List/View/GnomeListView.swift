@@ -34,6 +34,7 @@ class GnomeListView : UIView {
         tableView = UITableView()
         tableView.backgroundColor = UIColor.clear
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         //View

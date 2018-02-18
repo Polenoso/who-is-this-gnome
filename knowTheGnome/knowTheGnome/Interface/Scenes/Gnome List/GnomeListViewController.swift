@@ -69,11 +69,14 @@ extension GnomeListViewController: GnomeListViewOutput {
     }
     
     func displayGnomes(data: [DisplayedGnomes]) {
+        gnomeListView?.tableView.tableFooterView = UIView()
         self.dataSource = data
     }
     
     func displayLoading() {
-        
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        gnomeListView?.tableView.tableFooterView = activityView
+        activityView.startAnimating()
     }
 }
 

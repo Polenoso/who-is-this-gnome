@@ -44,5 +44,12 @@ extension Gnome {
             throw error
         }
     }
+}
+
+extension Gnome : Equatable {
+    static func ==(lhs: Gnome, rhs: Gnome) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     
 }

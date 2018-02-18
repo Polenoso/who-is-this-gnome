@@ -1,0 +1,627 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D42D98BF2038F1D4009713BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D98BE2038F1D4009713BB /* AppDelegate.swift */; };
+		D42D98C62038F1D4009713BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42D98C52038F1D4009713BB /* Assets.xcassets */; };
+		D42D98C92038F1D4009713BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42D98C72038F1D4009713BB /* LaunchScreen.storyboard */; };
+		D42D98D42038F1D4009713BB /* knowTheGnomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D98D32038F1D4009713BB /* knowTheGnomeTests.swift */; };
+		D4D988E120399FD9000664B9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D988E020399FD9000664B9 /* Alamofire.framework */; };
+		D4D988E32039A050000664B9 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D988E22039A050000664B9 /* Kingfisher.framework */; };
+		D4D988E72039A103000664B9 /* Gnome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988E62039A103000664B9 /* Gnome.swift */; };
+		D4D988E92039A11D000664B9 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988E82039A11D000664B9 /* ApiManager.swift */; };
+		D4D988EB2039A12A000664B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988EA2039A12A000664B9 /* NetworkManager.swift */; };
+		D4D988EE2039A176000664B9 /* GnomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988ED2039A176000664B9 /* GnomeListViewController.swift */; };
+		D4D988F02039A185000664B9 /* GnomeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988EF2039A185000664B9 /* GnomeListView.swift */; };
+		D4D988F22039A19B000664B9 /* GnomeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988F12039A19B000664B9 /* GnomeListPresenter.swift */; };
+		D4D988F52039A1B8000664B9 /* GnomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988F42039A1B8000664B9 /* GnomeService.swift */; };
+		D4F17F8D20399E4A000A1BD6 /* AppAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F17F8C20399E4A000A1BD6 /* AppAPIConfig.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D42D98D02038F1D4009713BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D42D98B32038F1D3009713BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D42D98BA2038F1D4009713BB;
+			remoteInfo = knowTheGnome;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4F17F9520399F61000A1BD6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D42D98BB2038F1D4009713BB /* knowTheGnome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knowTheGnome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D42D98BE2038F1D4009713BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D42D98C52038F1D4009713BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D42D98C82038F1D4009713BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D42D98CA2038F1D4009713BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D42D98CF2038F1D4009713BB /* knowTheGnomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = knowTheGnomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D42D98D32038F1D4009713BB /* knowTheGnomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = knowTheGnomeTests.swift; sourceTree = "<group>"; };
+		D42D98D52038F1D4009713BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4D988E020399FD9000664B9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
+		D4D988E22039A050000664B9 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = SOURCE_ROOT; };
+		D4D988E62039A103000664B9 /* Gnome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gnome.swift; sourceTree = "<group>"; };
+		D4D988E82039A11D000664B9 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		D4D988EA2039A12A000664B9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D4D988ED2039A176000664B9 /* GnomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListViewController.swift; sourceTree = "<group>"; };
+		D4D988EF2039A185000664B9 /* GnomeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListView.swift; sourceTree = "<group>"; };
+		D4D988F12039A19B000664B9 /* GnomeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListPresenter.swift; sourceTree = "<group>"; };
+		D4D988F42039A1B8000664B9 /* GnomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeService.swift; sourceTree = "<group>"; };
+		D4F17F8C20399E4A000A1BD6 /* AppAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAPIConfig.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D42D98B82038F1D4009713BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D988E32039A050000664B9 /* Kingfisher.framework in Frameworks */,
+				D4D988E120399FD9000664B9 /* Alamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D42D98CC2038F1D4009713BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D42D98B22038F1D3009713BB = {
+			isa = PBXGroup;
+			children = (
+				D42D98BD2038F1D4009713BB /* knowTheGnome */,
+				D42D98D22038F1D4009713BB /* knowTheGnomeTests */,
+				D42D98BC2038F1D4009713BB /* Products */,
+				D4F17F9620399F6B000A1BD6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D42D98BC2038F1D4009713BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D42D98BB2038F1D4009713BB /* knowTheGnome.app */,
+				D42D98CF2038F1D4009713BB /* knowTheGnomeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D42D98BD2038F1D4009713BB /* knowTheGnome */ = {
+			isa = PBXGroup;
+			children = (
+				D42D98DF2038F447009713BB /* Interface */,
+				D42D98DE2038F347009713BB /* Infrastructure */,
+				D42D98C72038F1D4009713BB /* LaunchScreen.storyboard */,
+			);
+			path = knowTheGnome;
+			sourceTree = "<group>";
+		};
+		D42D98D22038F1D4009713BB /* knowTheGnomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				D42D98D32038F1D4009713BB /* knowTheGnomeTests.swift */,
+				D42D98D52038F1D4009713BB /* Info.plist */,
+			);
+			path = knowTheGnomeTests;
+			sourceTree = "<group>";
+		};
+		D42D98DE2038F347009713BB /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				D4F17F892039908E000A1BD6 /* Managers */,
+				D4F17F8820399081000A1BD6 /* APIConfig */,
+				D42D98E22038F79F009713BB /* Model */,
+				D42D98E02038F4AE009713BB /* Resources */,
+				D42D98BE2038F1D4009713BB /* AppDelegate.swift */,
+				D42D98CA2038F1D4009713BB /* Info.plist */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		D42D98DF2038F447009713BB /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				D4F17F8A20399A9B000A1BD6 /* Services */,
+				D42D98E12038F63D009713BB /* Scenes */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		D42D98E02038F4AE009713BB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D42D98C52038F1D4009713BB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D42D98E12038F63D009713BB /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988EC2039A130000664B9 /* Gnome List */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D42D98E22038F79F009713BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988E62039A103000664B9 /* Gnome.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D4D988EC2039A130000664B9 /* Gnome List */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988F32039A19E000664B9 /* View */,
+				D4D988ED2039A176000664B9 /* GnomeListViewController.swift */,
+				D4D988F12039A19B000664B9 /* GnomeListPresenter.swift */,
+			);
+			path = "Gnome List";
+			sourceTree = "<group>";
+		};
+		D4D988F32039A19E000664B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988EF2039A185000664B9 /* GnomeListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D4F17F8820399081000A1BD6 /* APIConfig */ = {
+			isa = PBXGroup;
+			children = (
+				D4F17F8C20399E4A000A1BD6 /* AppAPIConfig.swift */,
+			);
+			path = APIConfig;
+			sourceTree = "<group>";
+		};
+		D4F17F892039908E000A1BD6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D4F17F8E20399EF9000A1BD6 /* NetworkManager */,
+				D4F17F8B20399B3B000A1BD6 /* ApiManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		D4F17F8A20399A9B000A1BD6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988F42039A1B8000664B9 /* GnomeService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D4F17F8B20399B3B000A1BD6 /* ApiManager */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988E82039A11D000664B9 /* ApiManager.swift */,
+			);
+			path = ApiManager;
+			sourceTree = "<group>";
+		};
+		D4F17F8E20399EF9000A1BD6 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988EA2039A12A000664B9 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		D4F17F9620399F6B000A1BD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4D988E22039A050000664B9 /* Kingfisher.framework */,
+				D4D988E020399FD9000664B9 /* Alamofire.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D42D98BA2038F1D4009713BB /* knowTheGnome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D42D98D82038F1D4009713BB /* Build configuration list for PBXNativeTarget "knowTheGnome" */;
+			buildPhases = (
+				D42D98B72038F1D4009713BB /* Sources */,
+				D42D98B82038F1D4009713BB /* Frameworks */,
+				D42D98B92038F1D4009713BB /* Resources */,
+				D4F17F9520399F61000A1BD6 /* Embed Frameworks */,
+				D4D988E52039A071000664B9 /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = knowTheGnome;
+			productName = knowTheGnome;
+			productReference = D42D98BB2038F1D4009713BB /* knowTheGnome.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D42D98CE2038F1D4009713BB /* knowTheGnomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D42D98DB2038F1D4009713BB /* Build configuration list for PBXNativeTarget "knowTheGnomeTests" */;
+			buildPhases = (
+				D42D98CB2038F1D4009713BB /* Sources */,
+				D42D98CC2038F1D4009713BB /* Frameworks */,
+				D42D98CD2038F1D4009713BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D42D98D12038F1D4009713BB /* PBXTargetDependency */,
+			);
+			name = knowTheGnomeTests;
+			productName = knowTheGnomeTests;
+			productReference = D42D98CF2038F1D4009713BB /* knowTheGnomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D42D98B32038F1D3009713BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Aitor Pagán";
+				TargetAttributes = {
+					D42D98BA2038F1D4009713BB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Manual;
+					};
+					D42D98CE2038F1D4009713BB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D42D98BA2038F1D4009713BB;
+					};
+				};
+			};
+			buildConfigurationList = D42D98B62038F1D3009713BB /* Build configuration list for PBXProject "knowTheGnome" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D42D98B22038F1D3009713BB;
+			productRefGroup = D42D98BC2038F1D4009713BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D42D98BA2038F1D4009713BB /* knowTheGnome */,
+				D42D98CE2038F1D4009713BB /* knowTheGnomeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D42D98B92038F1D4009713BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D42D98C92038F1D4009713BB /* LaunchScreen.storyboard in Resources */,
+				D42D98C62038F1D4009713BB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D42D98CD2038F1D4009713BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D4D988E52039A071000664B9 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D42D98B72038F1D4009713BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4D988E92039A11D000664B9 /* ApiManager.swift in Sources */,
+				D4D988EE2039A176000664B9 /* GnomeListViewController.swift in Sources */,
+				D4D988F52039A1B8000664B9 /* GnomeService.swift in Sources */,
+				D4D988E72039A103000664B9 /* Gnome.swift in Sources */,
+				D4D988EB2039A12A000664B9 /* NetworkManager.swift in Sources */,
+				D4D988F02039A185000664B9 /* GnomeListView.swift in Sources */,
+				D4D988F22039A19B000664B9 /* GnomeListPresenter.swift in Sources */,
+				D4F17F8D20399E4A000A1BD6 /* AppAPIConfig.swift in Sources */,
+				D42D98BF2038F1D4009713BB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D42D98CB2038F1D4009713BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D42D98D42038F1D4009713BB /* knowTheGnomeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D42D98D12038F1D4009713BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D42D98BA2038F1D4009713BB /* knowTheGnome */;
+			targetProxy = D42D98D02038F1D4009713BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D42D98C72038F1D4009713BB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D42D98C82038F1D4009713BB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D42D98D62038F1D4009713BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D42D98D72038F1D4009713BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D42D98D92038F1D4009713BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/knowTheGnome/Infrastructure/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = polenoso.knowTheGnome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D42D98DA2038F1D4009713BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/knowTheGnome/Infrastructure/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = polenoso.knowTheGnome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		D42D98DC2038F1D4009713BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UE55G86CF4;
+				INFOPLIST_FILE = knowTheGnomeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = polenoso.knowTheGnomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/knowTheGnome.app/knowTheGnome";
+			};
+			name = Debug;
+		};
+		D42D98DD2038F1D4009713BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UE55G86CF4;
+				INFOPLIST_FILE = knowTheGnomeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = polenoso.knowTheGnomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/knowTheGnome.app/knowTheGnome";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D42D98B62038F1D3009713BB /* Build configuration list for PBXProject "knowTheGnome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D42D98D62038F1D4009713BB /* Debug */,
+				D42D98D72038F1D4009713BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D42D98D82038F1D4009713BB /* Build configuration list for PBXNativeTarget "knowTheGnome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D42D98D92038F1D4009713BB /* Debug */,
+				D42D98DA2038F1D4009713BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D42D98DB2038F1D4009713BB /* Build configuration list for PBXNativeTarget "knowTheGnomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D42D98DC2038F1D4009713BB /* Debug */,
+				D42D98DD2038F1D4009713BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D42D98B32038F1D3009713BB /* Project object */;
+}

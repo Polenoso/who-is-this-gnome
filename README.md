@@ -58,7 +58,7 @@ run ``` carthage bootstrap --platform iOS ```
 
 ## Authors & Contributors
 
-** Aitor Pagan ** - *Initial work*
+**Aitor Pagan** - *Initial work*
 
 [Contributors](https://github.com/polenoso/who-is-this-gnome/graphs/contributors) who participated.
 

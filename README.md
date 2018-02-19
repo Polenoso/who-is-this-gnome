@@ -8,8 +8,11 @@ Usage of MVP (Model-View-Presenter) as main architecture for this project.
 Written in [`Swift`](https://developer.apple.com/swift/).
 
 The project is structured as:
+
 -Infrastructure
+
 -Interface
+
 where,
 
 `Infrastructure` :  Contains all the core of the project.

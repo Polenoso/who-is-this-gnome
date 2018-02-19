@@ -48,7 +48,7 @@ Kingfisher is a supported framework with MIT license used to mange the image cac
 ### Carthage
 To run the project Carthage is needed.
 
-` [How to install carthage](https://github.com/Carthage/Carthage#user-content-installing-carthage) `
+ [How to install carthage](https://github.com/Carthage/Carthage#user-content-installing-carthage) 
 
 After installing carthage, open a new terminal session, navigate to project folder under knowTheKnome directory.
 

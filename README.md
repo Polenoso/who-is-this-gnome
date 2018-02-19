@@ -63,5 +63,5 @@ run ``` carthage bootstrap --platform iOS ```
 [Contributors](https://github.com/polenoso/who-is-this-gnome/graphs/contributors) who participated.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
 

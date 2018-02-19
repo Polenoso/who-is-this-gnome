@@ -286,9 +286,8 @@
 				D4D988E22039A050000664B9 /* Kingfisher.framework */,
 				D4D988E020399FD9000664B9 /* Alamofire.framework */,
 			);
-			name = Frameworks;
-			path = ../Frameworks;
-			sourceTree = SOURCE_ROOT;
+			path = Frameworks;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

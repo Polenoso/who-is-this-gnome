@@ -18,6 +18,12 @@ struct DisplayedGnomes {
 
 class GnomeListViewController: UIViewController {
     
+    enum ViewState {
+        case empty
+        case data([DisplayedGnomes])
+        case loading
+    }
+    
     //Main view
     var gnomeListView : GnomeListView?
     
@@ -29,6 +35,29 @@ class GnomeListViewController: UIViewController {
         didSet{
             if let tableView = gnomeListView?.tableView {
                 tableView.reloadData()
+            }
+        }
+    }
+    
+    //View State
+    var viewState : ViewState = .loading {
+        didSet {
+            switch viewState {
+            case .loading:
+                gnomeListView?.tableView.isHidden = false
+                let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                gnomeListView?.tableView.tableFooterView = activityView
+                activityView.startAnimating()
+                gnomeListView?.emptyView.isHidden = true
+            case .empty:
+                gnomeListView?.tableView.isHidden = true
+                gnomeListView?.emptyView.isHidden = false
+            case .data(let data):
+                let view = UIView()
+                gnomeListView?.tableView.tableFooterView = view
+                gnomeListView?.tableView.isHidden = false
+                gnomeListView?.emptyView.isHidden = true
+                dataSource = data
             }
         }
     }
@@ -51,12 +80,23 @@ class GnomeListViewController: UIViewController {
     }
     
     private func setupInitialData() {
+        // Setup Delegates
         gnomeListView?.tableView.register(GnomeTableViewCell.classForCoder(), forCellReuseIdentifier: GnomeTableViewCell.GnomeTableViewCellIdentifier)
         gnomeListView?.tableView.dataSource = self
         gnomeListView?.tableView.delegate = self
         gnomeListView?.tableView.rowHeight = UITableViewAutomaticDimension
         gnomeListView?.tableView.estimatedRowHeight = 400
+        gnomeListView?.filterTextField.delegate = self
+        //Hide Keyboard when touch outside
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        //Load Gnomes
         presenter?.getGnomes()
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
@@ -70,24 +110,15 @@ extension GnomeListViewController: GnomeListViewOutput {
     }
     
     func displayGnomes(data: [DisplayedGnomes]) {
-        gnomeListView?.tableView.tableFooterView = UIView()
-        self.dataSource = data
+        viewState = .data(data)
     }
     
     func displayEmptyList() {
-        let emptyLabel = UILabel()
-        emptyLabel.text = "No Gnomes found, please try again"
-        emptyLabel.font = Fonts.title
-        emptyLabel.textColor = UIColor.black
-        emptyLabel.numberOfLines = 0
-        gnomeListView?.tableView.tableFooterView = emptyLabel
-        self.dataSource = []
+        viewState = .empty
     }
     
     func displayLoading() {
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        gnomeListView?.tableView.tableFooterView = activityView
-        activityView.startAnimating()
+        viewState = .loading
     }
 }
 
@@ -105,5 +136,16 @@ extension GnomeListViewController : UITableViewDataSource, UITableViewDelegate {
         cell.updateUI(genderAsset: displayed.asset, name: displayed.name, age: displayed.age, weight: displayed.weight, height: displayed.height)
         
         return cell
+    }
+}
+
+// MARK: TextField Delegate
+extension GnomeListViewController : UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let text = textField.text ?? ""
+        let newText = (text as NSString).replacingCharacters(in: range, with: string)
+        presenter?.filter(with: newText, sortedBy: "default")
+        return true
     }
 }

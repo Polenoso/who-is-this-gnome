@@ -48,7 +48,6 @@ class GnomeListPresenterImpl: GnomeListPresenter{
     var gnomeService : GnomeService = GnomeServiceImpl()
     
     // Helpers
-    var filteredList : [Gnome]?
     var sortStyle : SortStyle = .byDefault
     var sortOrder : SortOrder = .asc
     
@@ -82,20 +81,17 @@ class GnomeListPresenterImpl: GnomeListPresenter{
             self.output?.displayErrorOnRetrieve(title: errorTitle, message: errorMessage)
             return
         }
-        sortStyle = SortStyle(from: sortedBy)
-        list = sortGnomes(list: list)
-        gnomes = list
-        if filteredList != nil {
-            list = filteredList!
+        let newSort = SortStyle(from: sortedBy)
+        if newSort != sortStyle {
+            sortStyle = newSort
+            list = sortGnomes(list: list)
+            gnomes = list
         }
-        if (with ?? "").isEmpty {
-            filteredList = nil
-        } else {
-            filteredList = list.filter() {
+        if !(with ?? "").isEmpty {
+            list = list.filter() {
                 guard let name = $0.name else { return true }
                 return name.contains("\(with ?? "")")
             }
-            list = filteredList ?? []
         }
         let displayedGnomes : [DisplayedGnomes] = list.map() {
             let age = "\($0.age ?? 0)"

@@ -61,6 +61,7 @@ class GnomeListViewController: UIViewController {
 }
 
 extension GnomeListViewController: GnomeListViewOutput {
+    
     func displayErrorOnRetrieve(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -71,6 +72,16 @@ extension GnomeListViewController: GnomeListViewOutput {
     func displayGnomes(data: [DisplayedGnomes]) {
         gnomeListView?.tableView.tableFooterView = UIView()
         self.dataSource = data
+    }
+    
+    func displayEmptyList() {
+        let emptyLabel = UILabel()
+        emptyLabel.text = "No Gnomes found, please try again"
+        emptyLabel.font = Fonts.title
+        emptyLabel.textColor = UIColor.black
+        emptyLabel.numberOfLines = 0
+        gnomeListView?.tableView.tableFooterView = emptyLabel
+        self.dataSource = []
     }
     
     func displayLoading() {

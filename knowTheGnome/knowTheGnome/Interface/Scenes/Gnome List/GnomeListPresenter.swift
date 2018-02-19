@@ -11,6 +11,7 @@ import Foundation
 protocol GnomeListViewOutput: class {
     func displayErrorOnRetrieve(title: String, message: String)
     func displayGnomes(data: [DisplayedGnomes])
+    func displayEmptyList()
     func displayLoading()
 }
 
@@ -66,7 +67,7 @@ class GnomeListPresenterImpl: GnomeListPresenter{
                 let assetForGender = self?.assetNameForGender(id: $0.id!) ?? "he"
                 return DisplayedGnomes(asset: assetForGender, name: $0.name ?? " ", age: age, weight: $0.weight?.format(f: ".2") ?? "", height: $0.height?.format(f: ".2") ?? "")
             }
-            self?.output?.displayGnomes(data: displayedGnomes)
+            self?.displayGnomes(gnomeListToDisplay: displayedGnomes)
         }) { [weak self] (error) in
             let errorTitle = "Error"
             let errorMessage = error.localizedDescription
@@ -101,7 +102,7 @@ class GnomeListPresenterImpl: GnomeListPresenter{
             let assetForGender = self.assetNameForGender(id: $0.id!)
             return DisplayedGnomes(asset: assetForGender, name: $0.name ?? " ", age: age, weight: $0.weight?.format(f: ".2") ?? "", height: $0.height?.format(f: ".2") ?? "")
         }
-        self.output?.displayGnomes(data: displayedGnomes)
+        self.displayGnomes(gnomeListToDisplay: displayedGnomes)
     }
     
     //MARK: Helpers
@@ -152,5 +153,13 @@ class GnomeListPresenterImpl: GnomeListPresenter{
             }
         })
         return sorted
+    }
+    
+    private func displayGnomes(gnomeListToDisplay: [DisplayedGnomes]) {
+        if gnomeListToDisplay.isEmpty {
+            output?.displayEmptyList()
+        } else {
+            output?.displayGnomes(data: gnomeListToDisplay)
+        }
     }
 }

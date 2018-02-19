@@ -10,8 +10,8 @@ import UIKit
 
 class GnomeListView : UIView {
     
+    var filterTextField: UITextField!
     var tableView: UITableView!
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +30,14 @@ class GnomeListView : UIView {
     
     private func setupViews() {
         
+        //TextField
+        filterTextField = UITextField()
+        filterTextField.placeholder = "Search by name..."
+        filterTextField.font = Fonts.component
+        filterTextField.textColor = UIColor.darkGray
+        filterTextField.autocorrectionType = .no
+        filterTextField.translatesAutoresizingMaskIntoConstraints = false
+        
         //TableView
         tableView = UITableView()
         tableView.backgroundColor = UIColor.clear
@@ -45,8 +53,14 @@ class GnomeListView : UIView {
     
     private func setupConstraints() {
         
+        // TextField
+        addConstraint(NSLayoutConstraint(item: filterTextField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 45.0))
+        addConstraint(NSLayoutConstraint(item: filterTextField, attribute: .top, relatedBy: .equal, toItem: self, attribute: .topMargin, multiplier: 1.0, constant: 8))
+        addConstraint(NSLayoutConstraint(item: filterTextField, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leadingMargin, multiplier: 1.0, constant: 16.0))
+        addConstraint(NSLayoutConstraint(item: filterTextField, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 16.0))
+        
         // TableView to View
-        addConstraint(NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .topMargin, multiplier: 1.0, constant: 0.0))
+        addConstraint(NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: filterTextField, attribute: .bottomMargin, multiplier: 1.0, constant: 0.0))
         addConstraint(NSLayoutConstraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottomMargin, multiplier: 1.0, constant: 0.0))
         addConstraint(NSLayoutConstraint(item: tableView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailingMargin, multiplier: 1.0, constant: 0.0))
         addConstraint(NSLayoutConstraint(item: tableView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leadingMargin, multiplier: 1.0, constant: 0.0))

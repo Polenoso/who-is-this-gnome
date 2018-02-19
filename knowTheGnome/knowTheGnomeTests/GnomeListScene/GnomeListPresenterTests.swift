@@ -23,6 +23,7 @@ class GnomeListPresenterTests: XCTestCase {
     }
     
     class GnomeListPresenterOutputSpy : GnomeListViewOutput {
+        
         var displayErrorOnRetreiveCalled = false
         func displayErrorOnRetrieve(title: String, message: String) {
             displayErrorOnRetreiveCalled = true
@@ -36,6 +37,11 @@ class GnomeListPresenterTests: XCTestCase {
         var displayLoadingCalled = false
         func displayLoading() {
             displayLoadingCalled = true
+        }
+        
+        var displayEmptyListCalled = false
+        func displayEmptyList() {
+            displayEmptyListCalled = true
         }
         
     }
@@ -66,7 +72,7 @@ class GnomeListPresenterTests: XCTestCase {
         XCTAssertFalse(outputSpy.displayErrorOnRetreiveCalled)
     }
     
-    func testGetGnomesWithSuccessShouldAskViewToDisplayGnomes() {
+    func testGetGnomesWithSuccessShouldAskViewToDisplayEmptyGnomes() {
         //Given
         let outputSpy = GnomeListPresenterOutputSpy()
         gnomeListPresenter.output = outputSpy
@@ -80,7 +86,7 @@ class GnomeListPresenterTests: XCTestCase {
         //Then
         XCTAssertTrue(outputSpy.displayLoadingCalled)
         XCTAssertTrue(serviceSpy.getGnomesCalled)
-        XCTAssertTrue(outputSpy.displayGnomesCalled)
+        XCTAssertTrue(outputSpy.displayEmptyListCalled)
     }
     
     func testGetGnomesWithErrorShouldAskViewToDisplayError() {
@@ -98,5 +104,38 @@ class GnomeListPresenterTests: XCTestCase {
         XCTAssertTrue(outputSpy.displayLoadingCalled)
         XCTAssertTrue(serviceSpy.getGnomesCalled)
         XCTAssertTrue(outputSpy.displayErrorOnRetreiveCalled)
+    }
+    
+    func testFilterWithEmptyListShouldAskViewToDisplayEmptyList() {
+        //Given
+        let outputSpy = GnomeListPresenterOutputSpy()
+        gnomeListPresenter.output = outputSpy
+        let serviceSpy = GnomeServiceSpy()
+        serviceSpy.isSuccess = false
+        gnomeListPresenter.gnomeService = serviceSpy
+        gnomeListPresenter.gnomes = []
+        
+        //When
+        gnomeListPresenter.filter(with: "", sortedBy: "")
+        
+        //Then
+        XCTAssertTrue(outputSpy.displayEmptyListCalled)
+    }
+    
+    func testFilterWithContainedGnomeShouldAskViewToDisplayGnomes() {
+        //Given
+        let outputSpy = GnomeListPresenterOutputSpy()
+        gnomeListPresenter.output = outputSpy
+        let serviceSpy = GnomeServiceSpy()
+        serviceSpy.isSuccess = false
+        gnomeListPresenter.gnomeService = serviceSpy
+        let gnomeNameTest = "test"
+        gnomeListPresenter.gnomes = [Gnome(id: 0, name: gnomeNameTest, thumbnail: nil, age: 0, weight: 0.0, height: 0.0, hair_color: "", professions: [], friends: [])]
+        
+        //When
+        gnomeListPresenter.filter(with: gnomeNameTest, sortedBy: "")
+        
+        //Then
+        XCTAssertTrue(outputSpy.displayGnomesCalled)
     }
 }

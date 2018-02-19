@@ -11,10 +11,11 @@ The project is structured as:
 -Infrastructure
 -Interface
 where,
+
 `Infrastructure` :  Contains all the core of the project.
-*Managers
-*AppConfig
-*Models
+* Managers
+* AppConfig
+* Models
 
 `Interface` : Contains the presentation busniess of the project.
 * Scenes

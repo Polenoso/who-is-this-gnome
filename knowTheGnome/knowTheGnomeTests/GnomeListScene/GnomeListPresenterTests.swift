@@ -19,7 +19,7 @@ class GnomeListPresenterTests: XCTestCase {
     }
     
     func setupPresenter() {
-        gnomeListPresenter = GnomeListPresenterImpl(with: GnomeListPresenterOutputSpy())
+        gnomeListPresenter = GnomeListPresenterImpl()
     }
     
     class GnomeListPresenterOutputSpy : GnomeListViewOutput {
@@ -123,6 +123,23 @@ class GnomeListPresenterTests: XCTestCase {
     }
     
     func testFilterWithContainedGnomeShouldAskViewToDisplayGnomes() {
+        //Given
+        let outputSpy = GnomeListPresenterOutputSpy()
+        gnomeListPresenter.output = outputSpy
+        let serviceSpy = GnomeServiceSpy()
+        serviceSpy.isSuccess = false
+        gnomeListPresenter.gnomeService = serviceSpy
+        let gnomeNameTest = "test"
+        gnomeListPresenter.gnomes = [Gnome(id: 0, name: gnomeNameTest, thumbnail: nil, age: 0, weight: 0.0, height: 0.0, hair_color: "", professions: [], friends: [])]
+        
+        //When
+        gnomeListPresenter.filter(with: gnomeNameTest, sortedBy: "")
+        
+        //Then
+        XCTAssertTrue(outputSpy.displayGnomesCalled)
+    }
+    
+    func testOrderShouldAskViewToDisplayGnomes() {
         //Given
         let outputSpy = GnomeListPresenterOutputSpy()
         gnomeListPresenter.output = outputSpy

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		097CE930203C30F400FEB5CC /* GnomeListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097CE92F203C30F400FEB5CC /* GnomeListViewControllerTests.swift */; };
 		D42D98BF2038F1D4009713BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D98BE2038F1D4009713BB /* AppDelegate.swift */; };
 		D42D98C62038F1D4009713BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42D98C52038F1D4009713BB /* Assets.xcassets */; };
 		D42D98C92038F1D4009713BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42D98C72038F1D4009713BB /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		097CE92F203C30F400FEB5CC /* GnomeListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListViewControllerTests.swift; sourceTree = "<group>"; };
 		D42D98BB2038F1D4009713BB /* knowTheGnome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knowTheGnome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42D98BE2038F1D4009713BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D42D98C52038F1D4009713BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				D4D989042039E910000664B9 /* GnomeListPresenterTests.swift */,
+				097CE92F203C30F400FEB5CC /* GnomeListViewControllerTests.swift */,
 			);
 			path = GnomeListScene;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				097CE930203C30F400FEB5CC /* GnomeListViewControllerTests.swift in Sources */,
 				D42D98D42038F1D4009713BB /* knowTheGnomeTests.swift in Sources */,
 				D4D989052039E910000664B9 /* GnomeListPresenterTests.swift in Sources */,
 			);

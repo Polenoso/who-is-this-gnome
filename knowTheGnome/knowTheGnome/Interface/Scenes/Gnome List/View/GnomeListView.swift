@@ -73,6 +73,7 @@ class GnomeListView : UIView {
         //SortingStackView
         sortingStackView = UIStackView()
         sortingStackView.axis = .horizontal
+        sortingStackView.alignment = .center
         sortingStackView.translatesAutoresizingMaskIntoConstraints = false
         
         //Picker View
@@ -102,11 +103,11 @@ class GnomeListView : UIView {
     
     private func setupConstraints() {
         
-        // StackView
+        //Filter StackView
         addConstraint(NSLayoutConstraint(item: filterTextField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 45.0))
-        addConstraint(NSLayoutConstraint(item: filterStackView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .topMargin, multiplier: 1.0, constant: 8))
+        addConstraint(NSLayoutConstraint(item: filterStackView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .topMargin, multiplier: 1.0, constant: 16))
         addConstraint(NSLayoutConstraint(item: filterStackView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leadingMargin, multiplier: 1.0, constant: 16.0))
-        addConstraint(NSLayoutConstraint(item: filterStackView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailingMargin, multiplier: 1.0, constant: 16.0))
+        addConstraint(NSLayoutConstraint(item: filterStackView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailingMargin, multiplier: 1.0, constant: -16.0))
         
         // TableView to View
         addConstraint(NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: filterStackView, attribute: .bottomMargin, multiplier: 1.0, constant: 0.0))

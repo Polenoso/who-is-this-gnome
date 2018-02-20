@@ -18,6 +18,18 @@ struct DisplayedGnomes {
 
 class GnomeListViewController: UIViewController {
     
+    init(presenter: GnomeListPresenter) {
+        self.presenter = presenter
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        self.presenter?.output = self
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     enum ViewState {
         case empty
         case data([DisplayedGnomes])
@@ -39,6 +51,8 @@ class GnomeListViewController: UIViewController {
         }
     }
     
+    let sortingOptions = [[SortStyle.byDefault.rawValue : "Default"], [SortStyle.byAge.rawValue : "By Age"], [SortStyle.byWeight.rawValue : "By Weight"], [SortStyle.byHeight.rawValue : "By Height"]]
+    
     //View State
     var viewState : ViewState = .loading {
         didSet {
@@ -49,14 +63,17 @@ class GnomeListViewController: UIViewController {
                 gnomeListView?.tableView.tableFooterView = activityView
                 activityView.startAnimating()
                 gnomeListView?.emptyView.isHidden = true
+                gnomeListView?.sortingStackView.isHidden = true
             case .empty:
                 gnomeListView?.tableView.isHidden = true
                 gnomeListView?.emptyView.isHidden = false
+                gnomeListView?.sortingStackView.isHidden = true
             case .data(let data):
                 let view = UIView()
                 gnomeListView?.tableView.tableFooterView = view
                 gnomeListView?.tableView.isHidden = false
                 gnomeListView?.emptyView.isHidden = true
+                gnomeListView?.sortingStackView.isHidden = false
                 dataSource = data
             }
         }
@@ -70,7 +87,6 @@ class GnomeListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = GnomeListPresenterImpl(with: self)
         setupNavigationBar()
         setupInitialData()
     }
@@ -87,6 +103,9 @@ class GnomeListViewController: UIViewController {
         gnomeListView?.tableView.rowHeight = UITableViewAutomaticDimension
         gnomeListView?.tableView.estimatedRowHeight = 400
         gnomeListView?.filterTextField.delegate = self
+        gnomeListView?.sortingPickerView.delegate = self
+        gnomeListView?.sortingPickerView.dataSource = self
+        gnomeListView?.sortingOrderButton.addTarget(self, action: #selector(self.orderButtonTouched(_:)), for: .touchUpInside)
         //Hide Keyboard when touch outside
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -95,8 +114,20 @@ class GnomeListViewController: UIViewController {
         presenter?.getGnomes()
     }
     
+    // MARK: Actions
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc func orderButtonTouched(_ sender: Any) {
+        let buttontitle = gnomeListView?.sortingOrderButton.titleLabel?.text ?? ""
+        //Toggle button
+        if buttontitle == "asc" {
+            gnomeListView?.sortingOrderButton.setTitle("desc", for: .normal)
+        } else {
+            gnomeListView?.sortingOrderButton.setTitle("asc", for: .normal)
+        }
+        presenter?.order(with: SortOrder(from: gnomeListView?.sortingOrderButton.titleLabel?.text ?? ""))
     }
 }
 
@@ -148,4 +179,24 @@ extension GnomeListViewController : UITextFieldDelegate {
         presenter?.filter(with: newText, sortedBy: "default")
         return true
     }
+}
+
+// MARK: Picker View DataSource and Delegate
+extension GnomeListViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sortingOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        presenter?.filter(with: self.gnomeListView?.filterTextField.text, sortedBy: sortingOptions[row].keys.first ?? "")
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sortingOptions[row].values.first
+    }
+    
 }

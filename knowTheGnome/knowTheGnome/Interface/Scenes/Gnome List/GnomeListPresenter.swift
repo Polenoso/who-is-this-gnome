@@ -18,6 +18,9 @@ protocol GnomeListViewOutput: class {
 protocol GnomeListPresenter {
     func getGnomes()
     func filter(with: String?, sortedBy: String)
+    func order(with: SortOrder)
+    
+    weak var output : GnomeListViewOutput? {get set}
 }
 
 enum SortStyle : String {
@@ -34,6 +37,14 @@ enum SortStyle : String {
 enum SortOrder {
     case asc
     case desc
+    
+    init(from: String){
+        if from == "asc"{
+            self = .asc
+        } else {
+            self = .desc
+        }
+    }
 }
 
 class GnomeListPresenterImpl: GnomeListPresenter{
@@ -50,10 +61,6 @@ class GnomeListPresenterImpl: GnomeListPresenter{
     // Helpers
     var sortStyle : SortStyle = .byDefault
     var sortOrder : SortOrder = .asc
-    
-    init(with output: GnomeListViewOutput) {
-        self.output = output
-    }
     
     //MARK: Input Business Logic
     func getGnomes() {
@@ -101,6 +108,26 @@ class GnomeListPresenterImpl: GnomeListPresenter{
         self.displayGnomes(gnomeListToDisplay: displayedGnomes)
     }
     
+    func order(with: SortOrder){
+        guard var list = gnomes else {
+            let errorTitle = "Error"
+            let errorMessage = "Unknown Error"
+            self.output?.displayErrorOnRetrieve(title: errorTitle, message: errorMessage)
+            return
+        }
+        if with != sortOrder {
+            sortOrder = with
+            list = sortGnomes(list: list)
+            gnomes = list
+        }
+        let displayedGnomes : [DisplayedGnomes] = list.map() {
+            let age = "\($0.age ?? 0)"
+            let assetForGender = self.assetNameForGender(id: $0.id!)
+            return DisplayedGnomes(asset: assetForGender, name: $0.name ?? " ", age: age, weight: $0.weight?.format(f: ".2") ?? "", height: $0.height?.format(f: ".2") ?? "")
+        }
+        self.displayGnomes(gnomeListToDisplay: displayedGnomes)
+    }
+    
     //MARK: Helpers
     private func assetNameForGender(id: Int) -> String {
         enum Assetname : String {
@@ -119,7 +146,7 @@ class GnomeListPresenterImpl: GnomeListPresenter{
         let sorted = list.sorted(by: { (lhs, rhs) -> Bool in
             switch self.sortStyle {
             case .byAge:
-                guard let leftAge = lhs.age, let rightAge = lhs.age else { return true }
+                guard let leftAge = lhs.age, let rightAge = rhs.age else { return true }
                 if self.sortOrder == .asc {
                     return leftAge < rightAge
                 }else {

@@ -17,8 +17,7 @@ protocol GnomeListViewOutput: class {
 
 protocol GnomeListPresenter {
     func getGnomes()
-    func filter(with: String?, sortedBy: String)
-    func order(with: SortOrder)
+    func filter(with: String?, sortedBy: String, order: SortOrder)
     
     weak var output : GnomeListViewOutput? {get set}
 }
@@ -47,7 +46,7 @@ enum SortOrder {
     }
 }
 
-class GnomeListPresenterImpl: GnomeListPresenter{
+class GnomeListPresenterImpl: GnomeListPresenter {
     
     // View reference
     weak var output : GnomeListViewOutput?
@@ -81,7 +80,7 @@ class GnomeListPresenterImpl: GnomeListPresenter{
         }
     }
     
-    func filter(with: String?, sortedBy: String) {
+    func filter(with: String?, sortedBy: String, order: SortOrder) {
         guard var list = gnomes else {
             let errorTitle = "Error"
             let errorMessage = "Unknown Error"
@@ -94,31 +93,16 @@ class GnomeListPresenterImpl: GnomeListPresenter{
             list = sortGnomes(list: list)
             gnomes = list
         }
+        if order != sortOrder {
+            sortOrder = order
+            list = sortGnomes(list: list)
+            gnomes = list
+        }
         if !(with ?? "").isEmpty {
             list = list.filter() {
                 guard let name = $0.name else { return true }
-                return name.contains("\(with ?? "")")
+                return name.lowercased().contains("\(with?.lowercased() ?? "")")
             }
-        }
-        let displayedGnomes : [DisplayedGnomes] = list.map() {
-            let age = "\($0.age ?? 0)"
-            let assetForGender = self.assetNameForGender(id: $0.id!)
-            return DisplayedGnomes(asset: assetForGender, name: $0.name ?? " ", age: age, weight: $0.weight?.format(f: ".2") ?? "", height: $0.height?.format(f: ".2") ?? "")
-        }
-        self.displayGnomes(gnomeListToDisplay: displayedGnomes)
-    }
-    
-    func order(with: SortOrder){
-        guard var list = gnomes else {
-            let errorTitle = "Error"
-            let errorMessage = "Unknown Error"
-            self.output?.displayErrorOnRetrieve(title: errorTitle, message: errorMessage)
-            return
-        }
-        if with != sortOrder {
-            sortOrder = with
-            list = sortGnomes(list: list)
-            gnomes = list
         }
         let displayedGnomes : [DisplayedGnomes] = list.map() {
             let age = "\($0.age ?? 0)"

@@ -127,7 +127,7 @@ class GnomeListViewController: UIViewController {
         } else {
             gnomeListView?.sortingOrderButton.setTitle("asc", for: .normal)
         }
-        presenter?.order(with: SortOrder(from: gnomeListView?.sortingOrderButton.titleLabel?.text ?? ""))
+        presenter?.filter(with: gnomeListView?.filterTextField.text, sortedBy: sortingOptions[(gnomeListView?.sortingPickerView.selectedRow(inComponent: 0))!].keys.first ?? "", order: SortOrder(from: gnomeListView?.sortingOrderButton.titleLabel?.text ?? ""))
     }
 }
 
@@ -176,7 +176,7 @@ extension GnomeListViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let text = textField.text ?? ""
         let newText = (text as NSString).replacingCharacters(in: range, with: string)
-        presenter?.filter(with: newText, sortedBy: "default")
+        presenter?.filter(with: newText, sortedBy: "default", order: SortOrder(from: gnomeListView?.sortingOrderButton.titleLabel?.text ?? ""))
         return true
     }
 }
@@ -192,7 +192,7 @@ extension GnomeListViewController : UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        presenter?.filter(with: self.gnomeListView?.filterTextField.text, sortedBy: sortingOptions[row].keys.first ?? "")
+        presenter?.filter(with: self.gnomeListView?.filterTextField.text, sortedBy: sortingOptions[row].keys.first ?? "", order: SortOrder(from: gnomeListView?.sortingOrderButton.titleLabel?.text ?? ""))
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

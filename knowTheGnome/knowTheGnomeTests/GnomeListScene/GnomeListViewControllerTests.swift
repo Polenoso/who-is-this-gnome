@@ -45,14 +45,10 @@ class GnomeListViewControllerTests: XCTestCase {
         }
         
         var filterCalled = false
-        func filter(with: String?, sortedBy: String) {
+        func filter(with: String?, sortedBy: String, order: SortOrder) {
             filterCalled = true
         }
-        
-        var orderCalled = false
-        func order(with: SortOrder) {
-            orderCalled = true
-        }
+
     }
     
     func testViewDidLoadShouldAskPresenterToGetGnomes() {

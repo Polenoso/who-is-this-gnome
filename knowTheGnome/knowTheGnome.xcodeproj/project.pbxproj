@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		097CE930203C30F400FEB5CC /* GnomeListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097CE92F203C30F400FEB5CC /* GnomeListViewControllerTests.swift */; };
+		097CE935203C6C6900FEB5CC /* GnomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097CE934203C6C6900FEB5CC /* GnomeDetailViewController.swift */; };
+		097CE938203C6CA000FEB5CC /* GnomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097CE937203C6CA000FEB5CC /* GnomeDetailView.swift */; };
+		097CE93A203C6CE900FEB5CC /* GnomeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097CE939203C6CE900FEB5CC /* GnomeDetailPresenter.swift */; };
 		D42D98BF2038F1D4009713BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D98BE2038F1D4009713BB /* AppDelegate.swift */; };
 		D42D98C62038F1D4009713BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42D98C52038F1D4009713BB /* Assets.xcassets */; };
 		D42D98C92038F1D4009713BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42D98C72038F1D4009713BB /* LaunchScreen.storyboard */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		097CE92F203C30F400FEB5CC /* GnomeListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListViewControllerTests.swift; sourceTree = "<group>"; };
+		097CE934203C6C6900FEB5CC /* GnomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeDetailViewController.swift; sourceTree = "<group>"; };
+		097CE937203C6CA000FEB5CC /* GnomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeDetailView.swift; sourceTree = "<group>"; };
+		097CE939203C6CE900FEB5CC /* GnomeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeDetailPresenter.swift; sourceTree = "<group>"; };
 		D42D98BB2038F1D4009713BB /* knowTheGnome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knowTheGnome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42D98BE2038F1D4009713BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D42D98C52038F1D4009713BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +107,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		097CE931203C6C1F00FEB5CC /* Gnome Detail */ = {
+			isa = PBXGroup;
+			children = (
+				097CE936203C6C8C00FEB5CC /* Views */,
+				097CE934203C6C6900FEB5CC /* GnomeDetailViewController.swift */,
+				097CE939203C6CE900FEB5CC /* GnomeDetailPresenter.swift */,
+			);
+			path = "Gnome Detail";
+			sourceTree = "<group>";
+		};
+		097CE936203C6C8C00FEB5CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				097CE937203C6CA000FEB5CC /* GnomeDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D42D98B22038F1D3009713BB = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +199,7 @@
 		D42D98E12038F63D009713BB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				097CE931203C6C1F00FEB5CC /* Gnome Detail */,
 				D4D988EC2039A130000664B9 /* Gnome List */,
 			);
 			path = Scenes;
@@ -418,12 +443,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D988F82039A864000664B9 /* GnomeRoute.swift in Sources */,
+				097CE93A203C6CE900FEB5CC /* GnomeDetailPresenter.swift in Sources */,
 				D4D988E92039A11D000664B9 /* ApiManager.swift in Sources */,
 				D4D988EE2039A176000664B9 /* GnomeListViewController.swift in Sources */,
 				D4D988F52039A1B8000664B9 /* GnomeService.swift in Sources */,
+				097CE938203C6CA000FEB5CC /* GnomeDetailView.swift in Sources */,
 				D4D988E72039A103000664B9 /* Gnome.swift in Sources */,
 				D4D988FB2039A936000664B9 /* CommonTypes.swift in Sources */,
 				D4D988EB2039A12A000664B9 /* NetworkManager.swift in Sources */,
+				097CE935203C6C6900FEB5CC /* GnomeDetailViewController.swift in Sources */,
 				D4D988F02039A185000664B9 /* GnomeListView.swift in Sources */,
 				D4D988FD2039BE87000664B9 /* GnomeTableViewCell.swift in Sources */,
 				D4D988F22039A19B000664B9 /* GnomeListPresenter.swift in Sources */,

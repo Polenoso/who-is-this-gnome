@@ -79,6 +79,7 @@ class GnomeListViewController: UIViewController {
         }
     }
     
+    // View lifeCycle
     override func loadView() {
         super.loadView()
         self.view = GnomeListView(frame: self.view.frame)
@@ -92,7 +93,9 @@ class GnomeListViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
+        let backbutton = UIBarButtonItem()
+        backbutton.title = " "
+        navigationItem.backBarButtonItem = backbutton
     }
     
     private func setupInitialData() {
@@ -151,6 +154,12 @@ extension GnomeListViewController: GnomeListViewOutput {
     func displayLoading() {
         viewState = .loading
     }
+    
+    func navigateToDetail(data: Gnome) {
+        let vc = GnomeDetailViewController(presenter: GnomeDetailPresenterImpl())
+        vc.presenter?.selectedGnome = data
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: Table View Data Source
@@ -167,6 +176,10 @@ extension GnomeListViewController : UITableViewDataSource, UITableViewDelegate {
         cell.updateUI(genderAsset: displayed.asset, name: displayed.name, age: displayed.age, weight: displayed.weight, height: displayed.height)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.didSelectGnome(at: indexPath.row)
     }
 }
 

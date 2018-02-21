@@ -13,12 +13,13 @@ protocol GnomeListViewOutput: class {
     func displayGnomes(data: [DisplayedGnomes])
     func displayEmptyList()
     func displayLoading()
+    func navigateToDetail(data: Gnome)
 }
 
 protocol GnomeListPresenter {
     func getGnomes()
     func filter(with: String?, sortedBy: String, order: SortOrder)
-    
+    func didSelectGnome(at index: Int)
     weak var output : GnomeListViewOutput? {get set}
 }
 
@@ -60,6 +61,7 @@ class GnomeListPresenterImpl: GnomeListPresenter {
     // Helpers
     var sortStyle : SortStyle = .byDefault
     var sortOrder : SortOrder = .asc
+    var filteredList : [Gnome]?
     
     //MARK: Input Business Logic
     func getGnomes() {
@@ -81,6 +83,7 @@ class GnomeListPresenterImpl: GnomeListPresenter {
     }
     
     func filter(with: String?, sortedBy: String, order: SortOrder) {
+        filteredList = nil
         guard var list = gnomes else {
             let errorTitle = "Error"
             let errorMessage = "Unknown Error"
@@ -103,6 +106,7 @@ class GnomeListPresenterImpl: GnomeListPresenter {
                 guard let name = $0.name else { return true }
                 return name.lowercased().contains("\(with?.lowercased() ?? "")")
             }
+            filteredList = list
         }
         let displayedGnomes : [DisplayedGnomes] = list.map() {
             let age = "\($0.age ?? 0)"
@@ -110,6 +114,15 @@ class GnomeListPresenterImpl: GnomeListPresenter {
             return DisplayedGnomes(asset: assetForGender, name: $0.name ?? " ", age: age, weight: $0.weight?.format(f: ".2") ?? "", height: $0.height?.format(f: ".2") ?? "")
         }
         self.displayGnomes(gnomeListToDisplay: displayedGnomes)
+    }
+    
+    func didSelectGnome(at index: Int){
+        guard index < gnomes?.count ?? 0, let gnome = gnomes?[index] else { return }
+        if let selectedByFilter = filteredList?[index] {
+            output?.navigateToDetail(data: selectedByFilter)
+        } else {
+            output?.navigateToDetail(data: gnome)
+        }
     }
     
     //MARK: Helpers

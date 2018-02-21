@@ -30,6 +30,9 @@
 		D4D989002039D379000664B9 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D988FF2039D379000664B9 /* FontExtension.swift */; };
 		D4D989022039DEF8000664B9 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D989012039DEF8000664B9 /* DoubleExtension.swift */; };
 		D4D989052039E910000664B9 /* GnomeListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D989042039E910000664B9 /* GnomeListPresenterTests.swift */; };
+		D4D98908203CC592000664B9 /* DetailComponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D98907203CC592000664B9 /* DetailComponentTableViewCell.swift */; };
+		D4D9890A203D64D8000664B9 /* GnomeDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D98909203D64D8000664B9 /* GnomeDetailPresenterTests.swift */; };
+		D4D9890C203D6793000664B9 /* GnomeDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9890B203D6793000664B9 /* GnomeDetailViewControllerTests.swift */; };
 		D4F17F8D20399E4A000A1BD6 /* AppAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F17F8C20399E4A000A1BD6 /* AppAPIConfig.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,9 @@
 		D4D988FF2039D379000664B9 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		D4D989012039DEF8000664B9 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		D4D989042039E910000664B9 /* GnomeListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeListPresenterTests.swift; sourceTree = "<group>"; };
+		D4D98907203CC592000664B9 /* DetailComponentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailComponentTableViewCell.swift; sourceTree = "<group>"; };
+		D4D98909203D64D8000664B9 /* GnomeDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeDetailPresenterTests.swift; sourceTree = "<group>"; };
+		D4D9890B203D6793000664B9 /* GnomeDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnomeDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		D4F17F8C20399E4A000A1BD6 /* AppAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAPIConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				097CE937203C6CA000FEB5CC /* GnomeDetailView.swift */,
+				D4D98907203CC592000664B9 /* DetailComponentTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,6 +164,7 @@
 		D42D98D22038F1D4009713BB /* knowTheGnomeTests */ = {
 			isa = PBXGroup;
 			children = (
+				D4D98906203CBC82000664B9 /* GnomeDetailScene */,
 				D4D989032039E8A8000664B9 /* GnomeListScene */,
 				D42D98D32038F1D4009713BB /* knowTheGnomeTests.swift */,
 				D42D98D52038F1D4009713BB /* Info.plist */,
@@ -264,6 +272,15 @@
 				097CE92F203C30F400FEB5CC /* GnomeListViewControllerTests.swift */,
 			);
 			path = GnomeListScene;
+			sourceTree = "<group>";
+		};
+		D4D98906203CBC82000664B9 /* GnomeDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				D4D98909203D64D8000664B9 /* GnomeDetailPresenterTests.swift */,
+				D4D9890B203D6793000664B9 /* GnomeDetailViewControllerTests.swift */,
+			);
+			path = GnomeDetailScene;
 			sourceTree = "<group>";
 		};
 		D4F17F8820399081000A1BD6 /* APIConfig */ = {
@@ -458,6 +475,7 @@
 				D4F17F8D20399E4A000A1BD6 /* AppAPIConfig.swift in Sources */,
 				D4D989002039D379000664B9 /* FontExtension.swift in Sources */,
 				D4D989022039DEF8000664B9 /* DoubleExtension.swift in Sources */,
+				D4D98908203CC592000664B9 /* DetailComponentTableViewCell.swift in Sources */,
 				D42D98BF2038F1D4009713BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,7 +486,9 @@
 			files = (
 				097CE930203C30F400FEB5CC /* GnomeListViewControllerTests.swift in Sources */,
 				D42D98D42038F1D4009713BB /* knowTheGnomeTests.swift in Sources */,
+				D4D9890A203D64D8000664B9 /* GnomeDetailPresenterTests.swift in Sources */,
 				D4D989052039E910000664B9 /* GnomeListPresenterTests.swift in Sources */,
+				D4D9890C203D6793000664B9 /* GnomeDetailViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,6 +36,11 @@ class GnomeListViewControllerTests: XCTestCase {
     }
     
     class GnomeListViewControllerOutputSpy : GnomeListPresenter {
+        var didSelectGnomeCalled = false
+        func didSelectGnome(at index: Int) {
+            didSelectGnomeCalled = true
+        }
+        
         var output: GnomeListViewOutput?
         
         
@@ -109,5 +114,20 @@ class GnomeListViewControllerTests: XCTestCase {
         XCTAssertFalse((gnomeListViewController.gnomeListView?.sortingStackView.isHidden)!)
         XCTAssertTrue((gnomeListViewController.gnomeListView?.emptyView.isHidden)!)
         XCTAssertFalse((gnomeListViewController.gnomeListView?.tableView.isHidden)!)
+    }
+    
+    func testDidSelectGnomeAtIndexShouldAskPresenterToDidSelectGnome() {
+        //Given
+        let outputSpy = GnomeListViewControllerOutputSpy()
+        gnomeListViewController.presenter = outputSpy
+        loadView()
+        gnomeListViewController.dataSource = [DisplayedGnomes(asset: "", name: "", age: "", weight: "", height: "")]
+        
+        //When
+        gnomeListViewController.tableView((gnomeListViewController.gnomeListView?.tableView)!, didSelectRowAt: IndexPath(row: 0, section: 0))
+        
+        //Then
+        XCTAssertTrue(outputSpy.getGnomesCalled)
+        XCTAssertTrue(outputSpy.didSelectGnomeCalled)
     }
 }

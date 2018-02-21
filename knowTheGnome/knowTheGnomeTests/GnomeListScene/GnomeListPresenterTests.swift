@@ -23,6 +23,10 @@ class GnomeListPresenterTests: XCTestCase {
     }
     
     class GnomeListPresenterOutputSpy : GnomeListViewOutput {
+        var navigateToDetailCalled = false
+        func navigateToDetail(data: Gnome) {
+            navigateToDetailCalled = true
+        }
         
         var displayErrorOnRetreiveCalled = false
         func displayErrorOnRetrieve(title: String, message: String) {
@@ -139,4 +143,35 @@ class GnomeListPresenterTests: XCTestCase {
         XCTAssertTrue(outputSpy.displayGnomesCalled)
     }
     
+    func testDidSelectGnomeShouldAskViewToNavigateToDetail() {
+        //Given
+        let outputSpy = GnomeListPresenterOutputSpy()
+        gnomeListPresenter.output = outputSpy
+        let serviceSpy = GnomeServiceSpy()
+        serviceSpy.isSuccess = false
+        gnomeListPresenter.gnomeService = serviceSpy
+        let gnomeNameTest = "test"
+        gnomeListPresenter.gnomes = [Gnome(id: 0, name: gnomeNameTest, thumbnail: nil, age: 0, weight: 0.0, height: 0.0, hair_color: "", professions: [], friends: [])]
+        
+        // When
+        gnomeListPresenter.didSelectGnome(at: 0)
+        
+        // Then
+        XCTAssertTrue(outputSpy.navigateToDetailCalled)
+    }
+    
+    func testDidSelectGnomeOutOfBoundsShouldNotNavigateToDetail() {
+        //Given
+        let outputSpy = GnomeListPresenterOutputSpy()
+        gnomeListPresenter.output = outputSpy
+        let serviceSpy = GnomeServiceSpy()
+        serviceSpy.isSuccess = false
+        gnomeListPresenter.gnomeService = serviceSpy
+        
+        // When
+        gnomeListPresenter.didSelectGnome(at: 0)
+        
+        // Then
+        XCTAssertFalse(outputSpy.navigateToDetailCalled)
+    }
 }

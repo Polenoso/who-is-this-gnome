@@ -60,8 +60,10 @@ run ``` carthage bootstrap --platform iOS ```
 - Carthage is a dependency manager for external frameworks. The advantages of using Carthage instead of CocoaPods or embedded frameworks is that with Carthage you can just use a reference to your frameworks and avoid to have large files in the repository. It is completely compatible and supported.
 
 ## A Quick View
-[alt Main Screen](https://github.com/polenoso/who-is-this-gnome/blob/develop/mainScreen.png)
-[alt Detail Screen](https://github.com/polenoso/who-is-this-gnome/blob/develop/detailScreen.png)
+<p align="center">
+  <img src="https://github.com/polenoso/who-is-this-gnome/blob/develop/mainScreen.png" width="350"/>
+  <img src="https://github.com/polenoso/who-is-this-gnome/blob/develop/detailScreen.png" width="350"/>
+</p>
 
 ## Authors & Contributors
 
